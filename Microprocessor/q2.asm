@@ -1,0 +1,31 @@
+	   LXI H,21FFH
+	   MOV B,M
+	   LXI H,2200H
+	   MVI C,00
+	   MVI A,00
+
+LOOP:	   STA 2600H
+	   MOV A,M
+	   ANI 81H
+	   CPI 81H
+	   JNZ SKIP1
+	   LDA 2600H
+	   ADD M
+	   JNC SKIP
+	   INR C
+	   JMP SKIP
+
+SKIP1:	   LDA 2600H
+	   INX H
+	   DCR B
+	   JNZ LOOP
+	   JMP LAST
+
+SKIP:	   INX H
+	   DCR B
+	   JNZ LOOP
+
+LAST:	   STA 2500H
+	   MOV A,C
+	   STA 2501H
+	   HLT
