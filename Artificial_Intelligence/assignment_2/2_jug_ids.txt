@@ -1,0 +1,44 @@
+
+After depth 0 Traverasal is 
+0 0
+
+After depth 1 Traverasal is 
+0 0
+3 0
+0 4
+
+After depth 2 Traverasal is 
+0 0
+3 0
+3 4
+0 3
+0 4
+3 1
+
+After depth 3 Traverasal is 
+0 0
+3 0
+3 4
+0 4
+0 3
+3 3
+0 4
+3 1
+0 1
+
+After depth 4 Traverasal is 
+0 0
+3 0
+3 4
+0 4
+3 1
+0 3
+3 3
+2 4
+----------------PATH----------------
+Goal state found
+0 0
+3 0
+0 3
+3 3
+2 4
