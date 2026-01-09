@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1274</width>
+    <height>889</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="my_label" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>451</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mouse_movement">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>40</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>10</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>    Mouse Movement</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mouse_pressed">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>40</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>10</y>
+      <width>121</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mouse Pressed</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>460</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>(451 X 451)</string>
+    </property>
+   </widget>
+   <widget class="Line" name="x_axis">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>225</y>
+      <width>450</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 85, 255);</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="y_axis">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>0</y>
+      <width>2</width>
+      <height>450</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(85, 255, 255);</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="show_axes">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>10</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Axes</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="setgridbutton">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>90</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Set Grid</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="gridspinbox">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>90</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resetButton">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>490</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reset</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="setpoint1">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>130</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>point1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="setpoint2">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>130</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>point2</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DDAline">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>170</y>
+      <width>89</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string> DDA Line</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bresenhamLine">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>170</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string> Bresenham Line</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="radiusSpinBox">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>210</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="midpointCircle">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>210</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>midpoint circle</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bresenhamCircle">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>210</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>bresenham circle</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="xaxisRadius">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>250</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="yaxisRadius">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>250</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>290</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X axis radius</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>290</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Y axis radius</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="midpointEllipse">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>250</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>midpoint ellipse</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="polarCircle">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>210</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>polar circle</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="polarEllipse">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>250</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>polar ellipse</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="floodfill">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>320</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>flood fill </string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="fill_selector">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>320</y>
+      <width>151</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boundaryfill">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>320</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>boundary fill</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="setVertex">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>360</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>set vertex</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clearVertex">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>360</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>clear vertex</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="scanlinefill">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>360</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>scan line</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="xtranslate">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>400</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>410</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>x translate</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="ytranslate">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>400</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>410</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>y translate</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="translation">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>400</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Translate</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>450</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>x scale</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>450</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>y scale</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="scaling">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>440</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>scale</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>500</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>x shear</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>500</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>y shear</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="shearing">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>490</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>shear</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>540</y>
+      <width>121</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>angle spin value</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="shearing_2">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>540</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>rotation</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="reflection">
+    <property name="geometry">
+     <rect>
+      <x>1140</x>
+      <y>590</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>reflection</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="reflectionaxis">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>590</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>reflection axis</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="reflectxaxis">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>590</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>reflection x axis</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="reflectyaxis">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>590</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>reflection y axis</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="reflectorigin">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>590</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>reflection origin</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>520</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>top left</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>520</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>bottom right</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="setCorner1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>540</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>set corner 1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="setCorner2">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>540</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>set corner 2</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lineclipping">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>540</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>line clipping</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="drawDDALineByStoringPoints">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>580</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DDA Line storing points</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="polygonclipping">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>620</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Polygon clipping</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="anglespinbox">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>540</y>
+      <width>67</width>
+      <height>29</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="xshear">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>490</y>
+      <width>67</width>
+      <height>29</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="yscale">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>440</y>
+      <width>67</width>
+      <height>29</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="xscale">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>440</y>
+      <width>67</width>
+      <height>29</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="yshear">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>490</y>
+      <width>67</width>
+      <height>29</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1274</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSantanu_s_Graphics_Assignment">
+    <property name="title">
+     <string>Santanu's Graphics Assignment</string>
+    </property>
+   </widget>
+   <addaction name="menuSantanu_s_Graphics_Assignment"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionSantanu_s_Graphics_Assignment">
+   <property name="text">
+    <string>Santanu's Graphics Assignment</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>my_label</class>
+   <extends>QLabel</extends>
+   <header location="global">my_label.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
