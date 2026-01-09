@@ -1,0 +1,33 @@
+Assuming you have an EMP table with columns emp_id and emp_name, 
+you can use the following SQL query to find the name of an employee given their code:
+
+sql
+
+SELECT emp_name FROM EMP WHERE emp_id = <employee code>;
+Replace <employee code> with the actual code entered by the user.
+ 
+If the employee with the given code does not exist in the table, 
+the query will return an empty result set. You can check for this case 
+in your application code and display an appropriate error message to the user.
+
+
+
+To accept an employee code from the user in SQL, 
+you can use the DECLARE and SET statements to create a variable and assign it 
+the value entered by the user. Here's an example:
+
+sql
+
+DECLARE @emp_code varchar(10)
+SET @emp_code = 'employee_code'
+
+Replace 'employee_code' with the actual code entered by the user. 
+The varchar(10) specifies that the variable @emp_code is a string with a 
+maximum length of 10 characters. You can adjust this to match the length 
+of your employee code field in the EMP table.
+
+Note that in most cases, you would want to prompt the user for the employee code 
+instead of hardcoding it in the SQL script. Depending on the environment in which 
+you're running the SQL script (e.g., SQL Server Management Studio, a command line tool, 
+a web application), the method for prompting the user may vary.
+
