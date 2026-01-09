@@ -1,0 +1,12 @@
+AI lab 2nd Set:
+1. Graph search algorithms
+A) Create a tree/ graph
+
+B) Implement DLS, IDS, IBS. 
+
+Report "order of nodes visited" And "solution path" for each of the search techniques
+
+2. Implement water jug and 8 puzzle for 
+BFS, DFS, DLS, ID, IB
+
+Report order, solution path for all the cases

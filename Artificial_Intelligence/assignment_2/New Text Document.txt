@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+// Define the production rules of the grammar
+vector<string> rules = {
+    "S -> S + T | T",
+    "T -> T * F | F",
+    "F -> ( S ) | id"
+};
+
+// Check if a given production rule is left-recursive
+bool isLeftRecursive(string rule) {
+    if (rule[0] == rule[5]) {
+        return true;
+    }
+    return false;
+}
+
+// Remove left recursion from a given production rule
+void removeLeftRecursion(int index) {
+    string rule = rules[index];
+    string nonTerm = rule.substr(0, 1);
+    string rightSide = rule.substr(5);
+    vector<string> newRules;
+    string newNonTerm = nonTerm + "'";
+    newRules.push_back(newNonTerm + " -> " + rightSide + " " + newNonTerm);
+    newRules.push_back(newNonTerm + " -> epsilon");
+    for (int i = 0; i < index; i++) {
+        string oldRule = rules[i];
+        if (oldRule[0] == nonTerm[0]) {
+            string oldRight = oldRule.substr(5);
+            string newRight = oldRight + " " + newNonTerm;
+            newRules.push_back(nonTerm + " -> " + newRight);
+        }
+    }
+    rules.erase(rules.begin() + index);
+    rules.insert(rules.begin() + index, newRules.begin(), newRules.end());
+}
+
+// Remove all left recursion from the grammar
+void removeLeftRecursionFromGrammar() {
+    int n = rules.size();
+    for (int i = 0; i < n; i++) {
+        if (isLeftRecursive(rules[i])) {
+            removeLeftRecursion(i);
+            i--;
+            n = rules.size();
+        }
+    }
+}
+
+// Print the production rules of the grammar
+void printRules() {
+    for (string rule : rules) {
+        cout << rule << endl;
+    }
+}
+
+int main() {
+    cout << "Original grammar:" << endl;
+    printRules();
+    cout << endl;
+    cout << "Grammar after removing left recursion:" << endl;
+    removeLeftRecursionFromGrammar();
+    printRules();
+    return 0;
+}
