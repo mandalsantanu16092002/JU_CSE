@@ -1,0 +1,17 @@
+Lex is a tool that generates Lexical Analyzer from the regular expressions for a given language. 
+There are several tutorials available on  the Internet for learning lex.
+
+Go through the tutorials and implement the followings.
+
+1. Write a lex file to check the validity of a binary message that starts with 1 
+and ends with 101 and contains any number of dots in between the parts of the messages.
+
+2. Write a lex program to recognize a string that starts with a capital letter which is 
+followed by any small letter or decimal digits and ends with a special character of your choice.
+
+3. Write a lex program that will function as a calculator and perform the operations 
+like addition, subtraction, multiplication, division, modulo and power.
+
+
+You may find solutions to the above problems on the Internet. Just copying from those 
+sources without understanding their working will not be helpful for your learning.
