@@ -1,0 +1,12 @@
+a) Write a program that will accept a 'C' code as input, perform lexical analysis and output a stream of tokens with lexemes, 
+tokens and the position of each token in the 'C' code.
+
+b) Output any lexical error in the 'C' code.
+
+c) A token may appear several times in the code. For example, an identifier 'sum' 
+may appear in the declaration statement, in multiple assignment statements like "sum = a+b;" 
+or "result = sum + z;" or in conditional statements. 
+The tokens need to be stored in a symbol table. You need to store the token using an 
+efficient data structure, such that insertion and searching from the data structure become efficient.
+Which data structure have you used in your code? What are the time complexities of 
+insertion and search for a token?
