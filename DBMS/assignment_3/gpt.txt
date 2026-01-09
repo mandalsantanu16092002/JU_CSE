@@ -1,0 +1,76 @@
+Department Table:
+
+CREATE TABLE department (
+    dept_code INT PRIMARY KEY,
+    dept_name VARCHAR(50) NOT NULL
+);
+
+Employee table:
+
+CREATE TABLE employee (
+    emp_code INT PRIMARY KEY,
+    emp_name VARCHAR(50) NOT NULL,
+    emp_address VARCHAR(100),
+    emp_city VARCHAR(50),
+    emp_join_date DATE DEFAULT CURRENT_DATE,
+    emp_basic DECIMAL(8,2) CHECK (emp_basic BETWEEN 5000 AND 9000),
+    emp_grade CHAR(1) CHECK (emp_grade IN ('A','B','C')),
+    emp_dept_code INT REFERENCES department(dept_code) ON DELETE RESTRICT
+);
+
+Leave Table:
+
+CREATE TABLE leave (
+    leave_id INT PRIMARY KEY,
+    emp_code INT REFERENCES employee(emp_code) ON DELETE CASCADE,
+    leave_type VARCHAR(10) NOT NULL,
+    leave_from_date DATE NOT NULL,
+    leave_to_date DATE NOT NULL
+);
+
+Constraints:
+
+The department table has a primary key constraint on dept_code.
+The employee table has a primary key constraint on emp_code, 
+a foreign key constraint on dept_code referring to the department table, 
+and check constraints on emp_basic and emp_grade.
+The leave table has a primary key constraint on leave_id, 
+and a foreign key constraint on emp_code referring to the employee table 
+with ON DELETE CASCADE to delete all leave records of an employee when they are retired or resigned.
+
+Note: The employee table constraint emp_name should be checked in the application layer to ensure that it is always in uppercase.
+
+3)
+a) To create a table with empcode, name, deptname, and basic from the existing tables for employees in department 
+"d1" with a basic salary of Rs. 70000/-, we can use the following SQL query:
+
+CREATE TABLE emp_dept_basic AS 
+SELECT e.empcode, e.name, d.deptname, e.basic 
+FROM employee e 
+JOIN department d ON e.deptcode = d.deptcode 
+WHERE d.deptname = 'd1' AND e.basic = 70000;
+
+b) To add employees with a basic salary greater than or equal to 7000/- from the existing table, we can use the following SQL query:
+
+INSERT INTO employee (empcode, name, deptcode, basic) 
+SELECT empcode, name, deptcode, basic 
+FROM existing_table 
+WHERE basic >= 7000;
+
+c) To alter the table to add a net pay column, we can use the following SQL query:
+
+ALTER TABLE employee 
+ADD net_pay FLOAT;
+
+d) To replace net pay with 1.5* Basic, we can use the following SQL query:
+
+UPDATE employee 
+SET net_pay = 1.5 * basic;
+
+e) To remove the net pay column, we can use the following SQL query:
+
+ALTER TABLE employee 
+DROP COLUMN net_pay;
+
+Note: Before dropping the net pay column, we need to make sure that there are no dependencies on this column 
+in any other tables or views. If there are dependencies, we need to remove them first before dropping the column.
