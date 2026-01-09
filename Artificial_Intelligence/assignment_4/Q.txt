@@ -1,0 +1,5 @@
+AI lab 4th set
+1. Implement Missionary cannibals problem 
+2. Maze problem
+
+using  graph search techniques you have studied
