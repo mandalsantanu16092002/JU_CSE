@@ -1,69 +1,40 @@
 import socket
 import sys
-from user import User
+import time
 
+class Client():
+    def __init__(self):
+        self.serverhost = '127.0.0.1'
+        self.serverport = 8080
 
-def generateQuery():
-    """generate tokens to be sent to server"""
-    # number of queries
-    n = len(sys.argv)
-    if (n < 4):
-        raise Exception("Invalid input string")
+    def process_query(self, args):
+        if args[2] != self.serverhost or int(args[3]) != self.serverport:
+            print('ERROR: Invalid server host or port number entered!')
+            return
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #domain,type,protocal
+        sock.connect((args[2], int(args[3]))) #server socket ip address and port number
+        for x in args:
+            time.sleep(.0005)
+            sock.send(x.encode())
+        sock.send("end".encode())
+        data = sock.recv(1024).decode()
+        while data:
+            if data == 'end':
+                break
+            print(data)
+            data = sock.recv(1024).decode()
+        sock.close()
 
-    # get the server hostname and port 
-    serverHost = sys.argv[1]
-    serverPort = int(sys.argv[2])
-    username = sys.argv[3]
-    yield (serverHost, serverPort, username)
-    i = 4
-    while (i < n):
-        # get query or manager query
-        func = sys.argv[i]
-        if func == "get" or func == "viewall":
-            str = " ".join((func, sys.argv[i + 1]))
-            i += 2
-        # put query
-        elif func == "put":
-            str = " ".join((func, sys.argv[i + 1], sys.argv[i + 2]))
-            i += 3
-        else:
-            raise Exception("Invalid input string")
-        yield str
-
-# create a new socket object
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
-    client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-
-    try:
-        # connection status with server
-        connected = False
-
-        for msg in generateQuery():
-            if not connected:
-                (server, port, username) = msg
-                client.connect((server, port))
-                # send it to server
-                client.sendall(bytes(username, 'UTF-8'))
-                in_data = client.recv(1024).decode()
-
-                if in_data == "ok":
-                    connected = True
-                else:
-                    break
-
-            else:
-                # send it to server
-                client.sendall(bytes(msg, 'UTF-8'))
-                in_data = client.recv(1024).decode()
-
-                if in_data == "$":
-                    pass
-                elif in_data == "undefined":
-                    print("")
-                elif not in_data:
-                    break
-                else:
-                    print(in_data)
-
-    except Exception as ex:
-        print(ex)
+if __name__ == '__main__':
+    c = Client()
+    num_args = len(sys.argv)
+    if num_args < 4:
+        print("ERROR: Invalid arguments provided!")
+        exit()
+    client_no = int(sys.argv[1])
+    if client_no < 1 or client_no > 100:
+        print("ERROR: Invalid client number provided!")
+        exit()
+    # print(num_args)
+    # print(sys.argv)
+    c.process_query(sys.argv)

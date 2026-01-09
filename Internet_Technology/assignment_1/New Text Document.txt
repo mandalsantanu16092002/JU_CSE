@@ -1,0 +1,7 @@
+The init_authorization method is a constructor for the KeyValueServer class. It initializes the authorization dictionary and the key-value store dictionary for each client.
+
+The authorization dictionary is a mapping of client IDs to their corresponding roles. By default, all clients are assigned the "guest" role. The max_client attribute of the server object specifies the maximum number of clients that can connect to the server.
+
+The key-value store dictionary is a mapping of client IDs to their corresponding key-value stores. Each client has their own separate key-value store that is only accessible to them.
+
+The init_authorization method sets the authorization dictionary and key-value store dictionary for all clients from 1 to max_client.
