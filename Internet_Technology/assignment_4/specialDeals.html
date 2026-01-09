@@ -1,0 +1,11 @@
+<div>
+    <h2>Special Deals</h2>
+    <ul>
+        <li th:each="specialDeal : ${specialDeals}" th:if="${!specialDeal.expired()}">
+            <div>
+                <h3 th:text="${specialDeal.departure} + ' to ' + ${specialDeal.arrival}"></h3>
+                <p th:text="${specialDeal.cost}"></p>
+            </div>
+        </li>
+    </ul>
+</div>

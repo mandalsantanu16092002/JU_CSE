@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Total Cost</th>
+            <th>Number of Legs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="flight : ${flights}">
+            <td th:text="${flight.departure}"></td>
+            <td th:text="${flight.arrival}"></td>
+            <td th:text="${flight.totalCost}"></td>
+            <td th:text="${flight.numberOfLegs}"></td>
+        </tr>
+    </tbody>
+</table>
