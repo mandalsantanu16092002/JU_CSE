@@ -1,0 +1,7 @@
+AI lab:
+1. Graph search algorithms
+A) Create a tree/ graph
+
+B) Implement BFS, DFS. 
+
+Report "order of nodes visited" And "solution path" for each of the search techniques
