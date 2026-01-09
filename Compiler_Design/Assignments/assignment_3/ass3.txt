@@ -1,0 +1,71 @@
+LEX FILE:
+
+%{
+#include "y.tab.h"
+%}
+
+%%
+if      { return IF; }
+else    { return ELSE; }
+for     { return FOR; }
+[ \t\n] { /* ignore whitespace */ }
+.       { return yytext[0]; }
+%%
+
+int yywrap() {
+    return 1;
+}
+
+YACC GRAMMAR:
+
+
+%{
+#include <stdio.h>
+
+int yylex();
+void yyerror(const char*);
+
+%}
+
+%token IF ELSE FOR
+
+%%
+program:
+    | statement program
+
+statement:
+    if_statement
+    | for_loop
+
+if_statement:
+    IF '(' expression ')' '{' program '}' ELSE '{' program '}'
+    {
+        printf("if-else statement detected\n");
+    }
+
+for_loop:
+    FOR '(' expression ';' expression ';' expression ')' '{' program '}'
+    {
+        printf("for loop detected\n");
+    }
+
+expression:
+    /* for simplicity, we assume an expression is just a variable or integer */
+    ID
+    | INT
+
+%%
+
+void yyerror(const char *s) {
+    printf("%s\n", s);
+}
+
+int main() {
+    yyparse();
+    return 0;
+}
+
+
+Note: This is a basic implementation that assumes an expression can only be an identifier 
+      or an integer. A more complex implementation would need to handle arithmetic and 
+      logical operators, and other types of expressions.
