@@ -1,0 +1,12 @@
+AI Lab 3rd Set
+
+1. Graph search algorithms
+A) Create a graph having multiple goal nodes
+
+B) Implement UCS, best first greedy, A* search. 
+
+Report "order of nodes visited" And "solution path" for each of the search techniques
+
+2. Implement water jug and 8 puzzle using these techniques
+
+Report order, solution path for all the cases

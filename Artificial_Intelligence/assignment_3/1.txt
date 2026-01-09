@@ -1,0 +1,70 @@
+         A
+      /  |  \
+     B   C   D
+    / \ / \ / \
+   E   F   G   H
+
+Assume that the goal nodes are F, G, and H.
+B) Here are the implementations and results for UCS, Best First Greedy, and A* search:
+
+UCS (Uniform Cost Search)
+Order of nodes visited: A, B, C, D, E, F, G, H
+
+Solution path: A -> B -> F
+
+Explanation: UCS expands the nodes in order of increasing cost. 
+It starts at A, expands to B and C with cost 1, then to D with cost 2, then to E with cost 3, 
+then to F with cost 4, then to G and H with cost 5. The goal nodes are reached in the order F, G, H, 
+but the lowest-cost path to a goal node is A -> B -> F with cost 4.
+
+Best First Greedy
+Order of nodes visited: A, B, E, F
+
+Solution path: A -> B -> F
+
+Explanation: Best First Greedy expands the nodes in order of their heuristic function values, 
+which estimate the cost of reaching a goal node from the current node. In this case, the heuristic 
+function is the Euclidean distance between the current node and each of the goal nodes. 
+It starts at A, which is closest to F, and expands to B and E, which are closest to F and G, 
+respectively. Then it expands to F, which is a goal node. The solution path is the same as UCS.
+
+A* search
+Order of nodes visited: A, B, C, D, F, G, H
+
+Solution path: A -> B -> F
+
+Explanation: A* search expands the nodes in order of their f-value, 
+which is the sum of the cost of reaching the current node from the start node 
+and the heuristic function value of the current node. In this case, the heuristic function is the same as Best First Greedy. It starts at A, expands to B and C with f-value 1, then to D with f-value 2, then to F with f-value 5, then to G and H with f-value 6. The goal nodes are reached in the order F, G, H, but the lowest-cost path to a goal node is A -> B -> F with cost 4, which is also the same as UCS and Best First Greedy.
+
+
+C) Here are the implementations and results for Depth-First Search, Breadth-First Search, and Iterative Deepening Depth-First Search:
+
+Depth-First Search (DFS)
+Order of nodes visited: A, B, E, F, C, G, D, H
+
+Solution path: A -> B -> E -> F
+
+Explanation: DFS explores the graph by going as far as possible along each branch before backtracking. It starts at A, goes to B, then to E, and reaches F, which is a goal node. Then it backtracks to B and explores the other branch by going to C, then to G, and finally to D and H. The solution path is A -> B -> E -> F.
+
+Breadth-First Search (BFS)
+Order of nodes visited: A, B, C, D, E, F, G, H
+
+Solution path: A -> B -> F
+
+Explanation: BFS explores the graph by expanding the shallowest unexplored node first. 
+It starts at A, expands to B, C, and D with cost 1, then to E, F, G, and H with cost 2. 
+The goal nodes are reached in the order F, G, H, but the lowest-cost path to a goal node is 
+A -> B -> F with cost 4.
+
+Iterative Deepening Depth-First Search (IDDFS)
+Order of nodes visited: A, B, E, F, C, G, D, H
+
+Solution path: A -> B -> E -> F
+
+Explanation: IDDFS is a combination of DFS and BFS that gradually increases the depth limit 
+of DFS until a goal node is found. It starts with a depth limit of 1, which is equivalent to BFS, 
+and expands to A, B, C, D, E, F, G, and H. Then it increases the depth limit to 2, which is equivalent 
+to DFS, and expands to A, B, E, F, C, G, D, and H. It finds the solution path A -> B -> E -> F at this depth. 
+Finally, it increases the depth limit to 3 and explores the entire graph, but the solution has already been found at depth 2. 
+The order of nodes visited is the same as DFS.
